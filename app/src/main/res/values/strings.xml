@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CarWiki</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ownerTitle">Halter</string>
+    <string name="aufbauTitle">Aufbau</string>
+    <string name="priceTitle">Preis</string>
+    <string name="hubraumTitle">Hubraum</string>
+    <string name="baujahrTitle">Baujahr</string>
+    <string name="information">Information</string>
+</resources>
