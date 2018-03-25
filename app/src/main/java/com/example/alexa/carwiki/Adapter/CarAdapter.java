@@ -40,17 +40,17 @@ public class CarAdapter extends ArrayAdapter<Car> {
         Resources resources = getContext().getResources();
         int id = resources.getIdentifier(currentCar.getImageUrl(), "drawable", getContext().getPackageName());
 
-        ImageView image = (ImageView)listItem.findViewById(R.id.imageView_car);
+        ImageView image = listItem.findViewById(R.id.imageView_car);
         image.setImageResource(id);
 
-        TextView brand = (TextView) listItem.findViewById(R.id.textView_brand);
+        TextView brand = listItem.findViewById(R.id.textView_brand);
         brand.setText(currentCar.getCarBrand().getDescripion()+" "+currentCar.getModel());
 
-        TextView owner = (TextView) listItem.findViewById(R.id.textView_owner);
-        owner.setText(getContext().getResources().getString(R.string.ownerTitle)+": "+currentCar.getOwner().getPrename()+" "+currentCar.getOwner().getFamilyname());
+        TextView owner = listItem.findViewById(R.id.textView_owner);
+        owner.setText(getContext().getResources().getString(R.string.besitzer)+": "+currentCar.getOwner().getPrename()+" "+currentCar.getOwner().getFamilyname());
 
-        TextView description = (TextView) listItem.findViewById(R.id.textView_description);
-        description.setText(getContext().getResources().getString(R.string.aufbauTitle)+": "+currentCar.getAufbau()+"\n"+getContext().getResources().getString(R.string.hubraumTitle)+": "+currentCar.getHubraum()+"\n"+getContext().getResources().getString(R.string.baujahrTitle)+": "+currentCar.getBaujahr()+"\n"+getContext().getResources().getString(R.string.priceTitle)+": "+currentCar.getPrice());
+        TextView description = listItem.findViewById(R.id.textView_description);
+        description.setText(getContext().getResources().getString(R.string.aufbau)+": "+currentCar.getAufbau()+"\n"+getContext().getResources().getString(R.string.hubraum)+": "+currentCar.getHubraum()+"\n"+getContext().getResources().getString(R.string.baujahr)+": "+currentCar.getBaujahr()+"\n"+getContext().getResources().getString(R.string.preis)+": "+currentCar.getPrice());
 
         return listItem;
 
