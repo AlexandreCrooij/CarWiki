@@ -11,6 +11,7 @@ import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
