@@ -1,8 +1,8 @@
 package com.example.alexa.carwiki.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,13 +13,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.alexa.carwiki.Adapter.CarAdapter;
-import com.example.alexa.carwiki.Model.Car;
+import com.example.alexa.carwiki.Adapter.BrandAdapter;
+import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
 
-public class GalleryActivity extends AppCompatActivity {
+public class GalleryBrandsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +30,22 @@ public class GalleryActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_gallery);
+        setContentView(R.layout.activity_gallerybrand);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setTitle("Car Wiki");
 
-        ListView oldTimerGallery = findViewById(R.id.galleryView);
+        ListView brandGallery = findViewById(R.id.galleryViewBrand);
 
-        CarAdapter carAdapter;
-        carAdapter = new CarAdapter(this, (ArrayList<Car>) MainActivity.cars);
-        oldTimerGallery.setAdapter(carAdapter);
+        BrandAdapter carBrandAdapter;
+        carBrandAdapter = new BrandAdapter(this, (ArrayList<CarBrand>) MainActivity.carBrands);
+        brandGallery.setAdapter(carBrandAdapter);
 
-        oldTimerGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        brandGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
-                intent.putExtra("ContextItem",MainActivity.cars.get(i));
+                Intent intent = new Intent(getApplicationContext(), DetailsBrandsActivity.class);
+                intent.putExtra("ContextItem",MainActivity.carBrands.get(i));
                 startActivity(intent);
             }
         });
@@ -53,7 +53,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_list, menu);
+        getMenuInflater().inflate(R.menu.menu_listbrands, menu);
         return true;
     }
 
@@ -68,11 +68,11 @@ public class GalleryActivity extends AppCompatActivity {
             Toast.makeText(this,"Search",Toast.LENGTH_LONG).show();
         }
         if(id==R.id.actions_add){
-            Intent intent = new Intent(getApplicationContext(), AddCarActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AddBrandActivity.class);
             startActivity(intent);
         }
-        if(id==R.id.actions_seeBrands){
-            Intent intent = new Intent(getApplicationContext(), GalleryBrandsActivity.class);
+        if(id==R.id.actions_seeCars){
+            Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
             startActivity(intent);
         }
         if(id==R.id.actions_seeOwners){

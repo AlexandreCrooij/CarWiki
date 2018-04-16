@@ -1,20 +1,30 @@
-package com.example.alexa.carwiki.Model;
+package com.example.alexa.carwiki.Entities;
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * Created by alexa on 23.03.2018.
  */
 
-public class Owner implements Serializable{
+@Entity(tableName = "owners")
+public class OwnerEntity implements Serializable{
+    @PrimaryKey
+    @ColumnInfo(name = "id_owner")
     private int idOwner;
+    @ColumnInfo(name = "first_name")
     private String prename;
+    @ColumnInfo(name = "last_name")
     private String familyname;
+    @ColumnInfo(name = "image_url")
     private String imageUrl;
+    @ColumnInfo(name = "description")
     private String description;
 
-    public Owner(int idOwner, String prename, String familyname, String imageUrl, String description) {
+    public OwnerEntity(int idOwner, String prename, String familyname, String imageUrl, String description) {
         this.idOwner = idOwner;
         this.prename = prename;
         this.familyname = familyname;

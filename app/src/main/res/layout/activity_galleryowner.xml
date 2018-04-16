@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alexa.carwiki.Activities.GalleryActivity">
+    tools:context="com.example.alexa.carwiki.Activities.GalleryOwnersActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
     <ListView
-        android:id="@+id/galleryView"
+        android:id="@+id/galleryViewOwner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
