@@ -1,5 +1,6 @@
 package com.example.alexa.carwiki.Activities;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.alexa.carwiki.Entities.AppDatabase;
+import com.example.alexa.carwiki.Entities.CarBrandEntity;
+import com.example.alexa.carwiki.Entities.CarEntity;
+import com.example.alexa.carwiki.Entities.OwnerEntity;
 import com.example.alexa.carwiki.Model.Car;
 import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.Model.Owner;
@@ -25,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     public static List<Car>cars;
     public static List<CarBrand>carBrands;
     public static List<Owner>carOwners;
+    public List<OwnerEntity> ownerEntities;
+    public List<CarEntity> carEntities;
+    public List<CarBrandEntity> carBrandEntities;
+    public AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Car Wiki");
         ImageView start = findViewById(R.id.mainImage);
         start.animate().alpha(1f).setDuration(4000);
+
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").fallbackToDestructiveMigration().allowMainThreadQueries().build();
+        db.carDao().deleteAllCars();
+        db.ownerDao().deleteAllOwners();
+        db.carBrandDao().deleteAllBrands();
+        ownerEntities = db.ownerDao().getAllOwners();
+        carEntities = db.carDao().getAllCars();
+        carBrandEntities = db.carBrandDao().getAllBrands();
 
         CarBrand carBrand1 = new CarBrand(1,"BMW", "BMW","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.", "bmw");
         CarBrand carBrand2 = new CarBrand(2,"Audi", "Audi","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.","audi");
