@@ -1,4 +1,4 @@
-package com.example.alexa.carwiki.Helper;
+package com.example.alexa.carwiki.Helper.Download;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

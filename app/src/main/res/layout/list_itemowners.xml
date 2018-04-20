@@ -32,6 +32,8 @@
                 android:layout_toEndOf="@+id/imageView_car"
                 android:layout_toRightOf="@+id/imageView_car"
                 android:layout_weight="1"
+                android:maxLines = "3"
+                android:scrollbars = "vertical"
                 android:textSize="19sp"
                 android:textStyle="bold"
                 tools:text="dawdaw" />
@@ -46,6 +48,7 @@
                 android:layout_marginTop="34dp"
                 android:layout_weight="1"
                 android:text="dawda"
+                android:maxLines = "3"
                 android:textSize="17sp" />
         </LinearLayout>
 

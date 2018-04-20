@@ -17,18 +17,20 @@ import java.io.Serializable;
         foreignKeys = {
         @ForeignKey(
                 entity = CarBrandEntity.class,
-                parentColumns = "id_brand",
-                childColumns = "id_owner"
+                parentColumns = "id",
+                childColumns = "id_brand",
+                onDelete = ForeignKey.CASCADE
         ),
         @ForeignKey(
                 entity = OwnerEntity.class,
-                parentColumns = "id_owner",
-                childColumns = "id_owner"
+                parentColumns = "id",
+                childColumns = "id_owner",
+                onDelete = ForeignKey.CASCADE
         )
 })
 public class CarEntity implements Serializable{
-    @PrimaryKey
-    @ColumnInfo(name = "id_car")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private int idCar;
     @ColumnInfo(name = "id_owner")
     private int idOwner;
@@ -40,10 +42,10 @@ public class CarEntity implements Serializable{
     private float price;
     @ColumnInfo(name = "hubraum")
     private String hubraum;
-    @ColumnInfo(name = "x_coord")
-    private float xCoor;
-    @ColumnInfo(name = "y_coord")
-    private float yCoor;
+    @ColumnInfo(name = "x_coordinate")
+    private int x;
+    @ColumnInfo(name = "y_coordinate")
+    private int y;
     @ColumnInfo(name = "aufbau")
     private String aufbau;
     @ColumnInfo(name = "zylinder")
@@ -53,15 +55,14 @@ public class CarEntity implements Serializable{
     @ColumnInfo(name = "image_url")
     private String imageUrl;
 
-    public CarEntity(int idCar, int idOwner, int idBrand, String model, float price, String hubraum, float xCoor, float yCoor, String aufbau, int zylinder, int baujahr, String imageUrl) {
-        this.idCar = idCar;
-        this.idOwner = idOwner;
+    public CarEntity(int idOwner, int idBrand, String model, float price, String hubraum, int x, int y, String aufbau, int zylinder, int baujahr, String imageUrl) {
         this.idBrand = idBrand;
+        this.idOwner = idOwner;
         this.model = model;
         this.price = price;
         this.hubraum = hubraum;
-        this.xCoor = xCoor;
-        this.yCoor = yCoor;
+        this.x = x;
+        this.y = y;
         this.aufbau = aufbau;
         this.zylinder = zylinder;
         this.baujahr = baujahr;
@@ -116,20 +117,20 @@ public class CarEntity implements Serializable{
         this.hubraum = hubraum;
     }
 
-    public float getxCoor() {
-        return xCoor;
+    public int getX() {
+        return x;
     }
 
-    public void setxCoor(float xCoor) {
-        this.xCoor = xCoor;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public float getyCoor() {
-        return yCoor;
+    public int getY() {
+        return y;
     }
 
-    public void setyCoor(float yCoor) {
-        this.yCoor = yCoor;
+    public void setY(int y) {
+        this.y = y;
     }
 
     public String getAufbau() {

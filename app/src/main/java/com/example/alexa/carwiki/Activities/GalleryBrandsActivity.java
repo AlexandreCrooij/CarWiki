@@ -14,12 +14,19 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.alexa.carwiki.Adapter.BrandAdapter;
+import com.example.alexa.carwiki.Entities.CarBrandEntity;
+import com.example.alexa.carwiki.Helper.Async.GetAllBrands;
 import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
+//Same as in Gallery Activity
 public class GalleryBrandsActivity extends AppCompatActivity {
+
+    private List<CarBrandEntity> carBrandEntities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +43,25 @@ public class GalleryBrandsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Car Wiki");
 
         ListView brandGallery = findViewById(R.id.galleryViewBrand);
+        GetAllBrands getAllBrands = new GetAllBrands(getWindow().getDecorView().getRootView());
+
+        try {
+            carBrandEntities = getAllBrands.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
         BrandAdapter carBrandAdapter;
-        carBrandAdapter = new BrandAdapter(this, (ArrayList<CarBrand>) MainActivity.carBrands);
+        carBrandAdapter = new BrandAdapter(this, carBrandEntities);
         brandGallery.setAdapter(carBrandAdapter);
 
         brandGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), DetailsBrandsActivity.class);
-                intent.putExtra("ContextItem",MainActivity.carBrands.get(i));
+                intent.putExtra("ContextItem",carBrandEntities.get(i));
                 startActivity(intent);
             }
         });
@@ -62,10 +78,8 @@ public class GalleryBrandsActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if(id==R.id.actions_settings){
-            Toast.makeText(this,"Setting",Toast.LENGTH_LONG).show();
-        }
-        if(id==R.id.actions_search){
-            Toast.makeText(this,"Search",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(intent);
         }
         if(id==R.id.actions_add){
             Intent intent = new Intent(getApplicationContext(), AddBrandActivity.class);

@@ -14,6 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="344dp"
+        android:onClick="addBrand"
         android:text="@string/hinzufügen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +59,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="BMW" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,7 +82,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Luxus" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,7 +105,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Die Bayerische Motoren Werke Aktiengesellschaft (BMW AG) ist die Muttergesellschaft der BMW Group, eines weltweit operierenden deutschen Automobil- und Motorradherstellers mit Sitz in München. Die Produktpalette umfasst die Automobil- und Motorrad-Marke BMW, die Automarken Mini und Rolls-Royce sowie die BMW-Submarken BMW M und BMW i." />
 
         </LinearLayout>
 
@@ -128,7 +129,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="http://auto-logos.com/wp-content/uploads/2017/11/bmw-logo.png" />
         </LinearLayout>
 
     </LinearLayout>

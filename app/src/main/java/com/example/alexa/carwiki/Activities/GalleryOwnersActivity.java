@@ -14,12 +14,19 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.alexa.carwiki.Adapter.OwnerAdapter;
+import com.example.alexa.carwiki.Entities.OwnerEntity;
+import com.example.alexa.carwiki.Helper.Async.GetAllOwners;
 import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
+//Same as in Gallery Activity
 public class GalleryOwnersActivity extends AppCompatActivity {
+
+    private List<OwnerEntity> ownerEntities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +44,26 @@ public class GalleryOwnersActivity extends AppCompatActivity {
 
         ListView ownerGallery = findViewById(R.id.galleryViewOwner);
 
+        GetAllOwners getAllOwners = new GetAllOwners(getWindow().getDecorView().getRootView());
+
+        try {
+            ownerEntities = getAllOwners.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
         OwnerAdapter carOwnerAdapter;
-        carOwnerAdapter = new OwnerAdapter(this, (ArrayList<Owner>) MainActivity.carOwners);
+        carOwnerAdapter = new OwnerAdapter(this, ownerEntities);
         ownerGallery.setAdapter(carOwnerAdapter);
 
         ownerGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), DetailsOwnersActivity.class);
-                intent.putExtra("ContextItem",MainActivity.carOwners.get(i));
+                intent.putExtra("ContextItem",ownerEntities.get(i));
                 startActivity(intent);
             }
         });
@@ -62,10 +80,8 @@ public class GalleryOwnersActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if(id==R.id.actions_settings){
-            Toast.makeText(this,"Setting",Toast.LENGTH_LONG).show();
-        }
-        if(id==R.id.actions_search){
-            Toast.makeText(this,"Search",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(intent);
         }
         if(id==R.id.actions_add){
             Intent intent = new Intent(getApplicationContext(), AddOwnerActivity.class);

@@ -8,6 +8,9 @@ import android.arch.persistence.room.Update;
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by alexa on 15.04.2018.
  */
@@ -18,9 +21,15 @@ public interface CarBrandDao {
     public void updateBrand(CarBrandEntity... brands);
 
     @Query("SELECT * FROM brands")
-    public CarBrandEntity[] getAllBrands();
+    public List<CarBrandEntity> getAllBrands();
 
-    @Query("SELECT * FROM brands WHERE id_brand = :id LIMIT 1")
+    @Query("DELETE FROM brands")
+    public void deleteAllBrands();
+
+    @Query("DELETE FROM brands WHERE id = :id")
+    public void deleteBrandWithId(int id);
+
+    @Query("SELECT * FROM brands WHERE id = :id LIMIT 1")
     public CarBrandEntity getBrandbyId(int id);
 
     @Insert

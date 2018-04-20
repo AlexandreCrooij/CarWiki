@@ -14,6 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="344dp"
+        android:onClick="addOwner"
         android:text="@string/hinzufügen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +59,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Angela" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,7 +82,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Merkel" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,7 +105,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Angela Merkel (2017) Unterschrift Angela Dorothea Merkel (* 17. Juli 1954 in Hamburg als Angela Dorothea Kasner)[1] ist eine deutsche Politikerin (CDU) und seit dem 22. November 2005 amtierende Bundeskanzlerin der Bundesrepublik Deutschland. Am 14. März 2018 wurde Merkel vom Bundestag zum vierten Mal zur Bundeskanzlerin gewählt." />
 
         </LinearLayout>
 
@@ -128,7 +129,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="http://cdn1.spiegel.de/images/image-1147610-860_poster_16x9-uird-1147610.jpg" />
         </LinearLayout>
 
     </LinearLayout>

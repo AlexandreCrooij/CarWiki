@@ -3,14 +3,11 @@ package com.example.alexa.carwiki.Activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -19,15 +16,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.alexa.carwiki.Helper.DownloadImageTask;
-import com.example.alexa.carwiki.Model.CarBrand;
+import com.example.alexa.carwiki.Entities.OwnerEntity;
+import com.example.alexa.carwiki.Helper.Async.DeleteBrandById;
+import com.example.alexa.carwiki.Helper.Async.DeleteOwnerById;
+import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
 import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
-import java.io.InputStream;
-
 public class DetailsOwnersActivity extends AppCompatActivity {
-    private Owner owner;
+    private OwnerEntity owner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,43 +37,54 @@ public class DetailsOwnersActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_details_owners);
 
+        //Get custom toolbar
         setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         getSupportActionBar().setTitle("Car Wiki");
 
-        owner = (Owner) getIntent().getSerializableExtra("ContextItem");
+        //Get Context Item
+        owner = (OwnerEntity) getIntent().getSerializableExtra("ContextItem");
 
-        Resources resources = getResources();
-
-        int idOwner = resources.getIdentifier(owner.getImageUrl(), "drawable", getPackageName());
-
-        ImageView imageBrand = findViewById(R.id.imageViewOwner);
-        imageBrand.setImageResource(idOwner);
-
-        new DownloadImageTask((ImageView) findViewById(R.id.imageViewOwner)).execute("https://www.bmw.ch/content/dam/bmw/common/all-models/m-series/m4-coupe/2017/images-and-videos/images/BMW-m4-coupe-images-and-videos-1920x1200-01.jpg.asset.1487343850903.jpg");
+        //Download Async Task to get the Image from Web
+        new DownloadImageTask((ImageView) findViewById(R.id.imageViewOwner)).execute(owner.getImageUrl());
 
         TextView brand = findViewById(R.id.textViewOwnerName);
         brand.setText(owner.getPrename()+" "+owner.getFamilyname());
 
-        TextView brandDescription = findViewById(R.id.textViewOwnerDescription);
-        brandDescription.setText(owner.getDescription());
+        TextView ownerDescription = findViewById(R.id.textViewOwnerDescription);
+        ownerDescription.setText(owner.getDescription());
+        ownerDescription.setMovementMethod(new ScrollingMovementMethod());
+
     }
 
+    //Inflates menu items to make them accessible
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
     }
 
+    //Checks which menu items have been pressed
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
+        //Go to settings
         if(id==R.id.actions_settings){
-            Toast.makeText(this,"Setting",Toast.LENGTH_LONG).show();
-        }
-        if(id==R.id.actions_edit){
-            Intent intent = new Intent(getApplicationContext(), EditOwnerActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
             startActivity(intent);
         }
+        //Go to Gallery
+        if(id==R.id.actions_list){
+            Intent intent = new Intent(getApplicationContext(), GalleryOwnersActivity.class);
+            intent.putExtra("ContextItem",owner);
+            startActivity(intent);
+        }
+        //Edit the entry
+        if(id==R.id.actions_edit){
+            Intent intent = new Intent(getApplicationContext(), EditOwnerActivity.class);
+            intent.putExtra("ContextItem",owner);
+            startActivity(intent);
+        }
+        //Remove the entry
         if(id==R.id.actions_remove){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setCancelable(true);
@@ -86,6 +94,9 @@ public class DetailsOwnersActivity extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            new DeleteOwnerById(getWindow().getDecorView().getRootView()).execute(owner.getIdOwner());
+                            Intent intent = new Intent(getApplicationContext(), GalleryOwnersActivity.class);
+                            startActivity(intent);
                         }
                     });
             builder.setNegativeButton(getResources().getString(R.string.abbrechen), new DialogInterface.OnClickListener() {

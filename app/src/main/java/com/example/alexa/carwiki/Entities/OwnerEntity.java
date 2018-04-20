@@ -12,8 +12,8 @@ import java.io.Serializable;
 
 @Entity(tableName = "owners")
 public class OwnerEntity implements Serializable{
-    @PrimaryKey
-    @ColumnInfo(name = "id_owner")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private int idOwner;
     @ColumnInfo(name = "first_name")
     private String prename;
@@ -24,19 +24,10 @@ public class OwnerEntity implements Serializable{
     @ColumnInfo(name = "description")
     private String description;
 
-    public OwnerEntity(int idOwner, String prename, String familyname, String imageUrl, String description) {
-        this.idOwner = idOwner;
+    public OwnerEntity(String prename, String familyname, String description, String imageUrl) {
         this.prename = prename;
         this.familyname = familyname;
         this.imageUrl = imageUrl;
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -70,5 +61,13 @@ public class OwnerEntity implements Serializable{
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

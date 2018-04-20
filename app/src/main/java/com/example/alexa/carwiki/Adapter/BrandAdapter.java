@@ -2,6 +2,7 @@ package com.example.alexa.carwiki.Adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,22 +10,25 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.alexa.carwiki.Entities.CarBrandEntity;
+import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
 import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alexa on 14.04.2018.
  */
 
-public class BrandAdapter extends ArrayAdapter<CarBrand>{
+public class BrandAdapter extends ArrayAdapter<CarBrandEntity>{
 
     private Context mContext;
-    private ArrayList<CarBrand> carBrandList = new ArrayList<>();
+    private List<CarBrandEntity> carBrandList;
 
 
-    public BrandAdapter(Context context, ArrayList<CarBrand> list) {
+    public BrandAdapter(Context context, List<CarBrandEntity> list) {
         super(context, 0 , list);
         mContext = context;
         carBrandList = list;
@@ -35,13 +39,9 @@ public class BrandAdapter extends ArrayAdapter<CarBrand>{
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_itembrands,parent,false);
 
-        CarBrand currentBrand = carBrandList.get(position);
+        CarBrandEntity currentBrand = carBrandList.get(position);
 
-        Resources resources = getContext().getResources();
-        int id = resources.getIdentifier(currentBrand.getLogoUrl(), "drawable", getContext().getPackageName());
-
-        ImageView imageBrand = listItem.findViewById(R.id.imageView_Brand);
-        imageBrand.setImageResource(id);
+        new DownloadImageTask((ImageView) listItem.findViewById(R.id.imageView_Brand)).execute(currentBrand.getLogoUrl());
 
         TextView brand = listItem.findViewById(R.id.textView_Brand);
         brand.setText(currentBrand.getDescripion());

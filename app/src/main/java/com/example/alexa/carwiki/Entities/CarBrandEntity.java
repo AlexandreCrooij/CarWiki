@@ -12,32 +12,23 @@ import java.io.Serializable;
 
 @Entity(tableName = "brands")
 public class CarBrandEntity implements Serializable{
-    @PrimaryKey
-    @ColumnInfo(name = "id_brand")
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private int idBrand;
-    @ColumnInfo(name = "id_category")
+    @ColumnInfo(name = "category")
     private String category;
-    @ColumnInfo(name = "id_information")
+    @ColumnInfo(name = "information")
     private String information;
-    @ColumnInfo(name = "id_description")
+    @ColumnInfo(name = "description")
     private String descripion;
-    @ColumnInfo(name = "id_logoUrl")
+    @ColumnInfo(name = "logoUrl")
     private String logoUrl;
 
-    public CarBrandEntity(int idBrand, String category, String descripion, String information, String logoUrl) {
-        this.idBrand = idBrand;
+    public CarBrandEntity(String descripion, String category, String information, String logoUrl) {
         this.category = category;
         this.information = information;
         this.descripion = descripion;
         this.logoUrl = logoUrl;
-    }
-
-    public String getInformation() {
-        return information;
-    }
-
-    public void setInformation(String information) {
-        this.information = information;
     }
 
     public int getIdBrand() {
@@ -56,6 +47,14 @@ public class CarBrandEntity implements Serializable{
         this.category = category;
     }
 
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
     public String getDescripion() {
         return descripion;
     }
@@ -71,5 +70,4 @@ public class CarBrandEntity implements Serializable{
     public void setLogoUrl(String logoUrl) {
         this.logoUrl = logoUrl;
     }
-
 }

@@ -10,12 +10,6 @@
         android:title="Settings"
         app:showAsAction="never" />
     <item
-        android:id="@+id/actions_search"
-        android:orderInCategory="100"
-        android:title="Search"
-        android:icon="@drawable/search"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/actions_add"
         android:orderInCategory="100"
         android:title="Add"

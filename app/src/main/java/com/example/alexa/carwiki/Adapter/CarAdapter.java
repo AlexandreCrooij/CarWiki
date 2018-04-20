@@ -9,21 +9,34 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.alexa.carwiki.Entities.CarBrandEntity;
+import com.example.alexa.carwiki.Entities.CarEntity;
+import com.example.alexa.carwiki.Entities.OwnerEntity;
+import com.example.alexa.carwiki.Helper.Async.GetBrandById;
+import com.example.alexa.carwiki.Helper.Async.GetOwnerById;
+import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
 import com.example.alexa.carwiki.Model.Car;
+import com.example.alexa.carwiki.Model.CarBrand;
+import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by alexa on 24.03.2018.
  */
 
-public class CarAdapter extends ArrayAdapter<Car> {
+public class CarAdapter extends ArrayAdapter<CarEntity> {
 
     private Context mContext;
-    private ArrayList<Car> carList = new ArrayList<>();
+    private List<CarEntity> carList = new ArrayList<>();
+    private CarEntity currentCar;
+    private CarBrandEntity currentCarBrandEntity;
+    private OwnerEntity currentOwnerEntity;
 
-    public CarAdapter(Context context, ArrayList<Car> list) {
+    public CarAdapter(Context context, List<CarEntity> list) {
         super(context, 0 , list);
         mContext = context;
         carList = list;
@@ -35,19 +48,31 @@ public class CarAdapter extends ArrayAdapter<Car> {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
 
-        Car currentCar = carList.get(position);
+        currentCar = carList.get(position);
 
-        Resources resources = getContext().getResources();
-        int id = resources.getIdentifier(currentCar.getImageUrl(), "drawable", getContext().getPackageName());
+        try {
+            currentCarBrandEntity = new GetBrandById(parent.findFocus()).execute(currentCar.getIdBrand()).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
-        ImageView image = listItem.findViewById(R.id.imageView_car);
-        image.setImageResource(id);
+        try {
+            currentOwnerEntity = new GetOwnerById(parent.findFocus()).execute(currentCar.getIdOwner()).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        new DownloadImageTask((ImageView) listItem.findViewById(R.id.imageView_car)).execute(currentCar.getImageUrl());
 
         TextView brand = listItem.findViewById(R.id.textView_brand);
-        brand.setText(currentCar.getCarBrand().getDescripion()+" "+currentCar.getModel());
+        brand.setText(currentCarBrandEntity.getDescripion()+" "+currentCar.getModel());
 
         TextView owner = listItem.findViewById(R.id.textView_owner);
-        owner.setText(getContext().getResources().getString(R.string.besitzer)+": "+currentCar.getOwner().getPrename()+" "+currentCar.getOwner().getFamilyname());
+        owner.setText(getContext().getResources().getString(R.string.besitzer)+": "+currentOwnerEntity.getPrename()+" "+currentOwnerEntity.getFamilyname());
 
         TextView description = listItem.findViewById(R.id.textView_description);
         description.setText(getContext().getResources().getString(R.string.aufbau)+": "+currentCar.getAufbau()+"\n"+getContext().getResources().getString(R.string.hubraum)+": "+currentCar.getHubraum()+"\n"+getContext().getResources().getString(R.string.baujahr)+": "+currentCar.getBaujahr()+"\n"+getContext().getResources().getString(R.string.preis)+": "+currentCar.getPrice());

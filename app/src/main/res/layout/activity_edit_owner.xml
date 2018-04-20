@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alexa.carwiki.Activities.AddOwnerActivity">
+    tools:context="com.example.alexa.carwiki.Activities.EditOwnerActivity">
 
     <Button
         android:id="@+id/button4"
@@ -24,6 +24,7 @@
         android:id="@+id/button_hinzufügen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:onClick="updateOwner"
         android:orientation="vertical"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"

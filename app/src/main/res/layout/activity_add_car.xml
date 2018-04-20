@@ -8,12 +8,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView23"
@@ -35,20 +38,18 @@
 
                     <TextView
                         android:id="@+id/textView_NameDerMarke"
-                        android:layout_width="120dp"
+                        android:layout_width="290dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/markenname"
                         android:textSize="18sp" />
 
-                    <EditText
-                        android:id="@+id/editText_NameDerMarke"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/dropdown_Marke"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:layout_weight="1" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -58,20 +59,18 @@
 
                     <TextView
                         android:id="@+id/textView_Halter"
-                        android:layout_width="120dp"
+                        android:layout_width="289dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/besitzer"
                         android:textSize="18sp" />
 
-                    <EditText
-                        android:id="@+id/editText_Halter"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/dropdown_Halter"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:layout_weight="1" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -94,7 +93,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="M3" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -117,7 +116,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="80000" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -140,7 +139,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="3,0Liter" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -163,7 +162,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="Coupe" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -186,7 +185,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="6" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -209,7 +208,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="2014" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -232,7 +231,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="http://cdn.bmwblog.com/wp-content/uploads/2017/11/Renderings-BMW-M2-Competition-30.jpg" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -255,7 +254,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="5" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -278,7 +277,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:text="120" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -287,6 +286,7 @@
                 android:id="@+id/button_hinzufügen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="addCar"
                 android:text="@string/hinzufügen" />
 
         </LinearLayout>

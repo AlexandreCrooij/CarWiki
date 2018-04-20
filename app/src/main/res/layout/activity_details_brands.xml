@@ -28,16 +28,17 @@
         <ImageView
             android:id="@+id/imageViewBrand"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bmw" />
+            android:layout_height="300dp" />
 
         <TextView
             android:id="@+id/textViewBrandDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:maxLines="10"
+            android:scrollbars="vertical"
             android:text="TextView"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
