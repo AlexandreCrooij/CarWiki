@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "#FFEFD2"
     tools:context="com.example.alexa.carwiki.Activities.EditOwnerActivity">
 
     <Button
@@ -35,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:textColor="#A87E00"
             android:fontFamily="@font/porticofont"
             android:text="@string/eintragabändern"
             android:textSize="30sp" />
@@ -49,9 +51,12 @@
                 android:id="@+id/textView_Vorname"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="@string/vorname"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editText_Vorname"
@@ -72,9 +77,12 @@
                 android:id="@+id/textView_Nachname"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="@string/nachname"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editText_Nachname"
@@ -95,9 +103,12 @@
                 android:id="@+id/textView_Information"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="@string/information"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editText_Information"
@@ -119,9 +130,12 @@
                 android:id="@+id/textView_Bild"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="@string/bild"
-                android:textSize="18sp" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editText_Bild"

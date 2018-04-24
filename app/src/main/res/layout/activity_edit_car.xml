@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "#FFEFD2"
     tools:context="com.example.alexa.carwiki.Activities.EditCarActivity">
 
     <ScrollView
@@ -24,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/porticofont"
+                android:textColor="#A87E00"
                 android:text="@string/eintragabändern"
                 android:textSize="30sp" />
 
@@ -43,6 +45,8 @@
                         android:layout_height="45dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/markenname"
                         android:textSize="18sp" />
 
@@ -65,6 +69,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/besitzer"
                         android:textSize="18sp" />
 
@@ -87,6 +93,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/model"
                         android:textSize="18sp" />
 
@@ -111,6 +119,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/preis"
                         android:textSize="18sp" />
 
@@ -135,6 +145,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/hubraum"
                         android:textSize="18sp" />
 
@@ -159,6 +171,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/aufbau"
                         android:textSize="18sp" />
 
@@ -183,6 +197,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/zylinder"
                         android:textSize="18sp" />
 
@@ -207,6 +223,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/baujahr"
                         android:textSize="18sp" />
 
@@ -231,6 +249,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/url"
                         android:textSize="18sp" />
 
@@ -255,6 +275,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/xCoordinate"
                         android:textSize="18sp" />
 
@@ -279,6 +301,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
                         android:text="@string/yCoordinate"
                         android:textSize="18sp" />
 

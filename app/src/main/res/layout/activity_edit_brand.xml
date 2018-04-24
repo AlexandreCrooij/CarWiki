@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "#FFEFD2"
     tools:context="com.example.alexa.carwiki.Activities.EditBrandActivity">
 
     <Button
@@ -37,6 +38,7 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/eintragabändern"
             android:textSize="30sp"
+            android:textColor="#A87E00"
             android:fontFamily="@font/porticofont"/>
 
         <LinearLayout
@@ -51,6 +53,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:text="@string/markenname"
                 android:textSize="18sp" />
 
@@ -75,6 +79,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:text="@string/kategorie"
                 android:textSize="18sp" />
 
@@ -99,6 +105,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:text="@string/information"
                 android:textSize="18sp" />
 
@@ -124,6 +132,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 android:text="@string/bild"
                 android:textSize="18sp" />
 
