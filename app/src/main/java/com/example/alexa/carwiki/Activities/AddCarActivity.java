@@ -1,6 +1,5 @@
 package com.example.alexa.carwiki.Activities;
 
-import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,17 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.example.alexa.carwiki.Entities.AppDatabase;
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
-import com.example.alexa.carwiki.Helper.Async.AddBrand;
 import com.example.alexa.carwiki.Helper.Async.AddCar;
 import com.example.alexa.carwiki.Helper.Async.GetAllBrands;
 import com.example.alexa.carwiki.Helper.Async.GetAllOwners;
 import com.example.alexa.carwiki.R;
-
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

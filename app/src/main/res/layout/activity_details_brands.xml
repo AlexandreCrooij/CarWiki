@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFEFD2"
     tools:context="com.example.alexa.carwiki.Activities.DetailsBrandsActivity">
 
     <LinearLayout
@@ -20,8 +21,8 @@
             android:id="@+id/textViewBrandName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:fontFamily="@font/porticofont"
+            android:textColor="#A87E00"
             android:layout_gravity="center_horizontal"
             android:text="TextView"
             android:textSize="30sp" />
@@ -36,9 +37,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:maxLines="10"
             android:scrollbars="vertical"
             android:text="TextView"
+            android:textColor="#000000"
             android:textSize="20sp" />
     </LinearLayout>
 

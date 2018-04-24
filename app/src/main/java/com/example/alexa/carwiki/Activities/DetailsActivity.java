@@ -1,9 +1,7 @@
 package com.example.alexa.carwiki.Activities;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
@@ -25,9 +21,7 @@ import com.example.alexa.carwiki.Helper.Async.DeleteCarById;
 import com.example.alexa.carwiki.Helper.Async.GetBrandById;
 import com.example.alexa.carwiki.Helper.Async.GetOwnerById;
 import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
-import com.example.alexa.carwiki.Model.Car;
 import com.example.alexa.carwiki.R;
-
 import java.util.concurrent.ExecutionException;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -86,11 +80,8 @@ public class DetailsActivity extends AppCompatActivity {
         TextView descriptionCar = findViewById(R.id.textView_DescriptionCar);
         descriptionCar.setText(getResources().getString(R.string.aufbau)+": "+car.getAufbau()+"\n"+getResources().getString(R.string.hubraum)+": "+car.getHubraum()+"\n"+getResources().getString(R.string.baujahr)+": "+car.getBaujahr()+"\n"+getResources().getString(R.string.preis)+": "+car.getPrice());
 
-        TextView brand = findViewById(R.id.textView_Brand);
-        brand.setText(currentCarBrandEntity.getDescripion());
-
         TextView brandDescription = findViewById(R.id.textView_BrandDescription);
-        brandDescription.setText(getResources().getString(R.string.information)+"\n"+currentCarBrandEntity.getInformation());
+        brandDescription.setText(currentCarBrandEntity.getInformation());
         brandDescription.setMovementMethod(new ScrollingMovementMethod());
 
     }

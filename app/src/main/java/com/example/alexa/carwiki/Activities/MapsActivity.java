@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Helper.Async.GetBrandById;
-import com.example.alexa.carwiki.Model.Car;
 import com.example.alexa.carwiki.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,7 +13,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.concurrent.ExecutionException;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {

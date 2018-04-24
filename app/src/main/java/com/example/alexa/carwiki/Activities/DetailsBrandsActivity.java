@@ -2,27 +2,20 @@ package com.example.alexa.carwiki.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Helper.Async.DeleteBrandById;
-import com.example.alexa.carwiki.Helper.Async.DeleteCarById;
 import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
-import com.example.alexa.carwiki.Model.Car;
-import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.R;
 
 public class DetailsBrandsActivity extends AppCompatActivity {

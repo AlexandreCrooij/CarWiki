@@ -3,9 +3,7 @@ package com.example.alexa.carwiki.Helper.Async;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 import android.view.View;
-
 import com.example.alexa.carwiki.Entities.AppDatabase;
-
 import java.lang.ref.WeakReference;
 
 /**
@@ -23,8 +21,9 @@ public class DeleteCarById extends AsyncTask<Integer, Void, Void> {
 
     @Override
     protected Void doInBackground(Integer... integers) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").fallbackToDestructiveMigration().build();
+        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         db.carDao().deleteCarWithId(integers[0]);
+        db.close();
         return null;
     }
 }

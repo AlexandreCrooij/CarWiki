@@ -14,13 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
-
-import com.example.alexa.carwiki.Helper.Async.DeleteOwnerById;
 import com.example.alexa.carwiki.R;
-
 import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {

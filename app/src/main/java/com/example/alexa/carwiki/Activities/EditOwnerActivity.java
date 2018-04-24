@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-
-import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
 import com.example.alexa.carwiki.Helper.Async.UpdateOwner;
-import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
 public class EditOwnerActivity extends AppCompatActivity {

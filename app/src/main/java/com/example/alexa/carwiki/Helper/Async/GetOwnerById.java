@@ -3,11 +3,8 @@ package com.example.alexa.carwiki.Helper.Async;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 import android.view.View;
-
 import com.example.alexa.carwiki.Entities.AppDatabase;
-import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
-
 import java.lang.ref.WeakReference;
 
 /**
@@ -25,7 +22,9 @@ public class GetOwnerById extends AsyncTask<Integer, Void, OwnerEntity> {
 
     @Override
     protected OwnerEntity doInBackground(Integer... integers) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").fallbackToDestructiveMigration().build();
-        return db.ownerDao().getOwnerbyId(integers[0]);
+        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        OwnerEntity item = db.ownerDao().getOwnerbyId(integers[0]);
+        db.close();
+        return item;
     }
 }

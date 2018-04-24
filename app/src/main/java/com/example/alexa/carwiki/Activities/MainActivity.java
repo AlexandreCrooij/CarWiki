@@ -1,6 +1,5 @@
 package com.example.alexa.carwiki.Activities;
 
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,28 +13,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.example.alexa.carwiki.Entities.AppDatabase;
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
-import com.example.alexa.carwiki.Model.Car;
-import com.example.alexa.carwiki.Model.CarBrand;
-import com.example.alexa.carwiki.Model.Owner;
+import com.example.alexa.carwiki.Helper.Async.DeleteAllBrands;
+import com.example.alexa.carwiki.Helper.Async.DeleteAllCars;
+import com.example.alexa.carwiki.Helper.Async.DeleteAllOwners;
 import com.example.alexa.carwiki.R;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static List<Car>cars;
-    public static List<CarBrand>carBrands;
-    public static List<Owner>carOwners;
     public List<OwnerEntity> ownerEntities;
     public List<CarEntity> carEntities;
     public List<CarBrandEntity> carBrandEntities;
@@ -67,12 +56,10 @@ public class MainActivity extends AppCompatActivity {
         start.animate().alpha(1f).setDuration(4000);
 
         //Deletes all owners and Brands and Cars
-        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").fallbackToDestructiveMigration().build();
-        db.ownerDao().deleteAllOwners();
-        db.carBrandDao().deleteAllBrands();
-        ownerEntities = db.ownerDao().getAllOwners();
-        carEntities = db.carDao().getAllCars();
-        carBrandEntities = db.carBrandDao().getAllBrands();
+        new DeleteAllBrands(getWindow().getDecorView().getRootView()).execute();
+        new DeleteAllCars(getWindow().getDecorView().getRootView()).execute();
+        new DeleteAllOwners(getWindow().getDecorView().getRootView()).execute();
+
     }
 
     public void goToGallery(View view){

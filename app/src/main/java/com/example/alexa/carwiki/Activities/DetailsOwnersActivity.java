@@ -2,7 +2,6 @@ package com.example.alexa.carwiki.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +13,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.alexa.carwiki.Entities.OwnerEntity;
-import com.example.alexa.carwiki.Helper.Async.DeleteBrandById;
 import com.example.alexa.carwiki.Helper.Async.DeleteOwnerById;
 import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
-import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
 public class DetailsOwnersActivity extends AppCompatActivity {

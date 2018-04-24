@@ -11,12 +11,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.alexa.carwiki.Adapter.CarAdapter;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Helper.Async.GetAllCars;
-import com.example.alexa.carwiki.Model.Car;
+
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
@@ -46,6 +45,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         //Gets all Cars to show
         GetAllCars getAllCars = new GetAllCars(getWindow().getDecorView().getRootView());
+        carEntities = new ArrayList<CarEntity>();
 
         try {
             carEntities = getAllCars.execute().get();
