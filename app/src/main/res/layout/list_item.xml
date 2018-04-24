@@ -20,7 +20,7 @@
         android:layout_toEndOf="@+id/imageView_car"
         android:layout_toRightOf="@+id/imageView_car"
         android:textSize="19sp"
-        android:textStyle="bold"
+        android:textColor="#A87E00"
         tools:text="dawdaw"
         android:fontFamily="@font/porticofont"/>
 

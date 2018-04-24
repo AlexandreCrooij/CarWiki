@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "#FFEFD2"
     tools:context="com.example.alexa.carwiki.Activities.AddOwnerActivity">
 
     <Button
@@ -37,6 +38,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/porticofont"
             android:text="@string/neuerBesitzer"
+            android:textColor="#A87E00"
             android:textSize="30sp" />
 
         <LinearLayout
@@ -49,7 +51,10 @@
                 android:id="@+id/textView_Vorname"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#000000"
                 android:text="@string/vorname"
                 android:textSize="18sp" />
 
@@ -72,7 +77,10 @@
                 android:id="@+id/textView_Nachname"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#000000"
                 android:text="@string/nachname"
                 android:textSize="18sp" />
 
@@ -95,7 +103,10 @@
                 android:id="@+id/textView_Information"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#000000"
                 android:text="@string/information"
                 android:textSize="18sp" />
 
@@ -119,7 +130,10 @@
                 android:id="@+id/text_ViewBild"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#000000"
                 android:text="@string/bild"
                 android:textSize="18sp" />
 
@@ -130,7 +144,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="http://cdn1.spiegel.de/images/image-1147610-860_poster_16x9-uird-1147610.jpg" />
+                android:text="http://pixdaus.com/files/items/pics/2/93/295293_d121c0d992a503c18413aba1d6d60e9b_large.jpg" />
         </LinearLayout>
 
     </LinearLayout>
