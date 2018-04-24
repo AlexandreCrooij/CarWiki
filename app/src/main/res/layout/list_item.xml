@@ -21,7 +21,8 @@
         android:layout_toRightOf="@+id/imageView_car"
         android:textSize="19sp"
         android:textStyle="bold"
-        tools:text="dawdaw" />
+        tools:text="dawdaw"
+        android:fontFamily="@font/porticofont"/>
 
     <TextView
         android:id="@+id/textView_owner"
