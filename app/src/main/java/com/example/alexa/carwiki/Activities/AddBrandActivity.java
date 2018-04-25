@@ -1,15 +1,11 @@
 package com.example.alexa.carwiki.Activities;
 
-import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.alexa.carwiki.Entities.AppDatabase;
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Helper.Async.AddBrand;
 import com.example.alexa.carwiki.R;

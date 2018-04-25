@@ -1,7 +1,6 @@
 package com.example.alexa.carwiki.Adapter;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,6 @@ import com.example.alexa.carwiki.Entities.OwnerEntity;
 import com.example.alexa.carwiki.Helper.Async.GetBrandById;
 import com.example.alexa.carwiki.Helper.Async.GetOwnerById;
 import com.example.alexa.carwiki.Helper.Download.DownloadImageTask;
-import com.example.alexa.carwiki.Model.Car;
-import com.example.alexa.carwiki.Model.CarBrand;
-import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
 
 import java.util.ArrayList;
@@ -59,7 +55,7 @@ public class CarAdapter extends ArrayAdapter<CarEntity> {
         }
 
         try {
-            currentOwnerEntity = new GetOwnerById(parent.findFocus()).execute(currentCar.getIdOwner()).get();
+                currentOwnerEntity = new GetOwnerById(parent.findFocus()).execute(currentCar.getIdOwner()).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

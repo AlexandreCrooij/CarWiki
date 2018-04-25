@@ -3,10 +3,8 @@ package com.example.alexa.carwiki.Helper.Async;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 import android.view.View;
-
 import com.example.alexa.carwiki.Entities.AppDatabase;
 import com.example.alexa.carwiki.Entities.CarEntity;
-
 import java.lang.ref.WeakReference;
 
 /**
@@ -24,8 +22,9 @@ public class UpdateCar extends AsyncTask<CarEntity, Void, Void> {
 
     @Override
     protected Void doInBackground(CarEntity... carEntities) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").fallbackToDestructiveMigration().allowMainThreadQueries().build();
+        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         db.carDao().updateCar(carEntities[0]);
+        db.close();
         return null;
     }
 }

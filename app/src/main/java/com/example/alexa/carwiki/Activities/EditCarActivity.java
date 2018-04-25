@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
@@ -15,7 +14,6 @@ import com.example.alexa.carwiki.Helper.Async.GetAllBrands;
 import com.example.alexa.carwiki.Helper.Async.GetAllOwners;
 import com.example.alexa.carwiki.Helper.Async.UpdateCar;
 import com.example.alexa.carwiki.R;
-
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

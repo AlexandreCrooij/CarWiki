@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Helper.Async.UpdateBrand;
-import com.example.alexa.carwiki.Model.CarBrand;
 import com.example.alexa.carwiki.R;
 
 public class EditBrandActivity extends AppCompatActivity {

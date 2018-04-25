@@ -11,15 +11,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.example.alexa.carwiki.Adapter.OwnerAdapter;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
 import com.example.alexa.carwiki.Helper.Async.GetAllOwners;
-import com.example.alexa.carwiki.Model.Owner;
 import com.example.alexa.carwiki.R;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

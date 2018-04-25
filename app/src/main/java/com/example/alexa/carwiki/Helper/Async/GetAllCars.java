@@ -3,11 +3,8 @@ package com.example.alexa.carwiki.Helper.Async;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 import android.view.View;
-
 import com.example.alexa.carwiki.Entities.AppDatabase;
-import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -25,7 +22,9 @@ public class GetAllCars extends AsyncTask<Void, Void, List<CarEntity>> {
 
     @Override
     protected List<CarEntity> doInBackground(Void... voids) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").fallbackToDestructiveMigration().build();
-        return db.carDao().getAllCars();
+        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        List<CarEntity> list = db.carDao().getAllCars();
+        db.close();
+        return list;
     }
 }
