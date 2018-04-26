@@ -8,7 +8,7 @@
         android:id="@+id/actions_seeCars"
         android:orderInCategory="100"
         android:title="See Brands"
-        android:icon="@drawable/brand"
+        android:icon="@drawable/car"
         app:showAsAction="always" />
     <item
         android:id="@+id/actions_seeOwners"

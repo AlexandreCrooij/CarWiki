@@ -22,9 +22,10 @@ public class GetAllCars extends AsyncTask<Void, Void, List<CarEntity>> {
 
     @Override
     protected List<CarEntity> doInBackground(Void... voids) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         List<CarEntity> list = db.carDao().getAllCars();
-        db.close();
+        //db.close();
         return list;
     }
 }

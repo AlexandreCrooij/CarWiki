@@ -42,11 +42,11 @@ public class EditOwnerActivity extends AppCompatActivity {
         ownerEntity.setDescription(editTextInformation.getText().toString());
         ownerEntity.setFamilyname(editTextNachname.getText().toString());
         ownerEntity.setImageUrl(editTextBild.getText().toString());
-        ownerEntity.setPrename(editTextBild.getText().toString());
+        ownerEntity.setPrename(editTextVorname.getText().toString());
 
         new UpdateOwner(view).execute(ownerEntity);
 
-        Intent intent = new Intent(getApplicationContext(), DetailsBrandsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), DetailsOwnersActivity.class);
         intent.putExtra("ContextItem",ownerEntity);
         startActivity(intent);
     }

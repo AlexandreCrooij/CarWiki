@@ -47,7 +47,7 @@ public class CarAdapter extends ArrayAdapter<CarEntity> {
         currentCar = carList.get(position);
 
         try {
-            currentCarBrandEntity = new GetBrandById(parent.findFocus()).execute(currentCar.getIdBrand()).get();
+            currentCarBrandEntity = new GetBrandById(listItem).execute(currentCar.getIdBrand()).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -55,7 +55,7 @@ public class CarAdapter extends ArrayAdapter<CarEntity> {
         }
 
         try {
-                currentOwnerEntity = new GetOwnerById(parent.findFocus()).execute(currentCar.getIdOwner()).get();
+                currentOwnerEntity = new GetOwnerById(listItem).execute(currentCar.getIdOwner()).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

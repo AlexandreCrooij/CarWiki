@@ -20,9 +20,10 @@ public class DeleteAllBrands extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         db.carBrandDao().deleteAllBrands();
-        db.close();
+        //db.close();
         return null;
     }
 }

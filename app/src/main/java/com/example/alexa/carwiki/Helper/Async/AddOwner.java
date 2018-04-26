@@ -22,9 +22,10 @@ public class AddOwner extends AsyncTask<OwnerEntity, Void, Void> {
 
     @Override
     protected Void doInBackground(OwnerEntity... ownerEntities) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         db.ownerDao().addOwner(ownerEntities[0]);
-        db.close();
+        //db.close();
         return null;
     }
 }

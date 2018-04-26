@@ -22,9 +22,10 @@ public class UpdateBrand extends AsyncTask<CarBrandEntity, Void, Void> {
 
     @Override
     protected Void doInBackground(CarBrandEntity... carBrandEntities) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         db.carBrandDao().updateBrand(carBrandEntities[0]);
-        db.close();
+        //db.close();
         return null;
     }
 }

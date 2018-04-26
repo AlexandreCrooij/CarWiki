@@ -17,6 +17,7 @@ import com.example.alexa.carwiki.Entities.AppDatabase;
 import com.example.alexa.carwiki.Entities.CarBrandEntity;
 import com.example.alexa.carwiki.Entities.CarEntity;
 import com.example.alexa.carwiki.Entities.OwnerEntity;
+import com.example.alexa.carwiki.Helper.Async.DatabaseCreator;
 import com.example.alexa.carwiki.Helper.Async.DeleteAllBrands;
 import com.example.alexa.carwiki.Helper.Async.DeleteAllCars;
 import com.example.alexa.carwiki.Helper.Async.DeleteAllOwners;
@@ -37,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Looks into the sharedPreferences in order to determine preferred language
         sharedPreferences = this.getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
-        String language = sharedPreferences.getString("lang", "empty");
+        String language = sharedPreferences.getString("lang", "en");
+
+        DatabaseCreator databaseCreator = DatabaseCreator.getInstance(this.getApplication());
+        databaseCreator.createDb(this.getApplication());
 
         //Sets language to preferred language
         Locale myLocale;
@@ -54,11 +58,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Car Wiki");
         ImageView start = findViewById(R.id.mainImage);
         start.animate().alpha(1f).setDuration(4000);
-
-        //Deletes all owners and Brands and Cars
-        new DeleteAllBrands(getWindow().getDecorView().getRootView()).execute();
-        new DeleteAllCars(getWindow().getDecorView().getRootView()).execute();
-        new DeleteAllOwners(getWindow().getDecorView().getRootView()).execute();
 
     }
 

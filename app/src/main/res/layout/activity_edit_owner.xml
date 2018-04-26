@@ -16,6 +16,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="344dp"
         android:text="@string/abändern"
+        android:onClick="updateOwner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="#A87E00"
             android:fontFamily="@font/porticofont"
             android:text="@string/eintragabändern"
+            android:textColor="#A87E00"
             android:textSize="30sp" />
 
         <LinearLayout

@@ -22,9 +22,10 @@ public class GetAllOwners extends AsyncTask<Void, Void, List<OwnerEntity>> {
 
     @Override
     protected List<OwnerEntity> doInBackground(Void... voids) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         List<OwnerEntity> list = db.ownerDao().getAllOwners();
-        db.close();
+        //db.close();
         return list;
     }
 }

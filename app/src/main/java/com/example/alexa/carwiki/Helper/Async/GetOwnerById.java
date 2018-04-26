@@ -22,9 +22,10 @@ public class GetOwnerById extends AsyncTask<Integer, Void, OwnerEntity> {
 
     @Override
     protected OwnerEntity doInBackground(Integer... integers) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         OwnerEntity item = db.ownerDao().getOwnerbyId(integers[0]);
-        db.close();
+        //db.close();
         return item;
     }
 }

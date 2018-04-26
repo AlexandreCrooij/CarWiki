@@ -21,9 +21,10 @@ public class DeleteCarById extends AsyncTask<Integer, Void, Void> {
 
     @Override
     protected Void doInBackground(Integer... integers) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+       // AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         db.carDao().deleteCarWithId(integers[0]);
-        db.close();
+        //db.close();
         return null;
     }
 }

@@ -23,9 +23,10 @@ public class GetBrandById extends AsyncTask<Integer, Void, CarBrandEntity> {
 
     @Override
     protected CarBrandEntity doInBackground(Integer... integers) {
-        AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
+        AppDatabase db = DatabaseCreator.getInstance(mView.get().getContext()).getDatabase();
+        //AppDatabase db = Room.databaseBuilder(mView.get().getContext(), AppDatabase.class, "production").build();
         CarBrandEntity item = db.carBrandDao().getBrandbyId(integers[0]);
-        db.close();
+        //db.close();
         return item;
     }
 }
